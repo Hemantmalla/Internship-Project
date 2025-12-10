@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Umami</title>
+    <link rel="stylesheet" href="{% static 'stylesheets/index.css' %}">
+    <script src="https://kit.fontawesome.com/22743b5cbb.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar1">
+            <div class="nav-bar1">
+                <img src="{% static 'images/logo.jpg' %}" alt="Logo" width="80px" height="80px"
+                    style="border-radius: 42px;">
+                <a href="{% url 'index' %}">URBAN UMAMI</a>
+            </div>
+            <div class="nav-bar2">
+                <label for="toggle">&#9776</label>
+                <input type="checkbox" id="toggle">
+                <div class="nav-bar-2">
+                    <a href="{% url 'menu' %}">MENU</a>
+                    <a href="{% url 'order' %}">ORDERS</a>
+                    <a href="{% url 'reserve' %}">RESERVE</a>
+                    <a href="{% url 'about' %}">ABOUT-US</a>
+
+                </div>
+            </div>
+            <div class="nav-bar3">
+                <a href="{% url 'profile' %}">LOGIN</a>
+            </div>
+        </nav>
+    </header>
+    <footer>
+        <div class="hom_footer_div">
+            <div class="hom_footer_div_1">
+                <a href="{% url 'contact' %}">ContactUs</a>
+                <a href="{% url 'feedback' %}">Feedback</a>
+                <a href="{% url 'privacy' %}">Privacy and Policy</a>
+                <a href="{% url 'term' %}">Terms and Conditions</a>
+            </div><br>
+            <div class="hom_footer_div_2">
+                <a href="www.facebook.com"><i class="fa-brands fa-facebook"></i></a><br>
+                <a href="www.instagram.com"><i class="fa-brands fa-instagram"></i></a><br>
+                <a href="www.x.com"><i class="fa-brands fa-x-twitter"></i></a><br>
+                <a href="www.linkedin.com"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <p class="resturant_copy">&copy; 2025 Urban Umami. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
