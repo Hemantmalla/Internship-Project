@@ -29,12 +29,10 @@ body {
 
 .navbar1 {
     display: grid;
-    grid-template-columns: 2fr 3fr 0.8fr;
-    width: 80%;
-    border-radius: 31px;
-    position: absolute;
+    grid-template-columns: 1.5fr 3fr 0.8fr;
+    width: 100%;
+    position: relative;
     top: 18px;
-    left: 126px;
     height: 6rem;
     z-index: 1;
     background-color: var(--background-color-navbar);
@@ -52,7 +50,8 @@ header {
 .nav-bar1 {
     display: flex;
     justify-content: center;
-    gap: 31px;
+    margin-left: 3rem;
+    gap: 2rem;
 }
 
 .nav-bar1 a {
@@ -74,7 +73,7 @@ header {
     justify-content: center;
     text-align: center;
     display: flex;
-    gap: 70px
+    gap: 7rem;
 }
 
 .nav-bar-2 a {
@@ -174,10 +173,10 @@ label {
     top: 31px;
 }
 
-.home_main_div_2{
+.home_main_div_2 {
     font-size: var(--font-size-body);
     line-height: 1.6;
-    text-align: justify;
+    text-align: center;
     padding: 0px 48px 12px 48px;
     color: var(--text-color-body);
 }
@@ -185,6 +184,8 @@ label {
 .main-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    padding: 0 1rem 0 1rem;
 }
 
 #ico {
@@ -209,8 +210,8 @@ label {
 }
 
 .img1 {
-    width: 300px;
-    height: 200px;
+    width: 100%;
+    height: fit-content;
     border-radius: 21px;
     box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.9);
 }
@@ -246,10 +247,12 @@ label {
 footer {
     top: -18px;
 }
-.hom_footer_div{
+
+.hom_footer_div {
     background-color: var(--background-color-footer);
     height: 7rem;
 }
+
 .hom_footer_div_1 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -270,12 +273,14 @@ footer {
     padding: 12px;
     gap: 1rem;
 }
-.hom_footer_div_2 a{
+
+.hom_footer_div_2 a {
     text-decoration: none;
     color: var(--text-color-footer);
     font-size: 21px;
 }
-.resturant_copy{
+
+.resturant_copy {
     margin: 0;
     color: var(--text-color-footer);
     background-color: var(--background-color-footer);
@@ -283,64 +288,74 @@ footer {
 }
 
 /* contact form start */
-.resturant_banner img{
+.resturant_banner img {
     width: 100%;
     height: 450px;
+    margin-top: -6rem;
 }
-.resturant_contact_section{
+
+.resturant_contact_section {
     display: grid;
     grid-template-columns: 1.3fr 1fr;
     margin: 0px 16px;
 }
-.resturant_contact_section_img img{
+
+.resturant_contact_section_img img {
     width: 100%;
     height: 621px;
     border-radius: 31px;
 }
-.resturant_contact_section_content{
+
+.resturant_contact_section_content {
     text-align: center;
 }
-.resturant_contact_section_content p{
+
+.resturant_contact_section_content p {
     font-size: var(--font-size-header);
 }
-.resturant_contact_section_content h4{
+
+.resturant_contact_section_content h4 {
     font-size: var(--h3-font-size);
 }
-.button_div button{
+
+.button_div button {
     background-color: var(--background-color-navbar);
     width: 12rem;
     height: 2.5rem;
     border-radius: 18px;
     box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.9);
 }
-.button_div a{
+
+.button_div a {
     text-decoration: none;
     color: var(--text-color-navbar);
 }
-.resturant_contact_aside{
+
+.resturant_contact_aside {
     background-color: var(--background-color-navbar);
     color: var(--text-color-navbar);
     width: 31rem;
     padding: 10px 0px 34px 0px;
     border-radius: 31px;
 }
-.resturant_contact_aside form{
 
-}
-.resturant_contact_aside span{
+.resturant_contact_aside span {
     font-size: var(--font-size-header);
 }
-.resturant_contact_aside input{
+
+.resturant_contact_aside input {
     border-radius: 12px;
     width: 15rem;
     height: 1.4rem;
 }
-.resturant_contact_aside textarea{
+
+.resturant_contact_aside textarea {
     border-radius: 12px;
     width: 15rem;
     height: 1.4rem;
 }
-.resturant_contact_aside button{
+
+.resturant_contact_aside button {
     background-color: var(--background-color-body);
     color: var(--text-color-body);
     font-size: var(--font-size-body);
@@ -349,14 +364,180 @@ footer {
     height: 3rem;
     border-radius: 21px;
 }
+
 /* contact form end */
 /* feedback form start */
+.resturant_feedback_section {
+    text-align: center;
+    margin: 44px 0px 10px 0px;
+    background-color: var(--background-color-navbar);
+    color: var(--text-color-navbar);
+    width: 600px;
+    border-radius: 31px;
+    padding: 10px 0px 31px 0px;
+}
+
+.resturant_feedback_section form {
+    text-align: right;
+    margin-right: 6rem;
+}
+
+.resturant_feedback_section h2 {
+    font-size: var(--h1-font-size);
+}
+
+.resturant_feedback_section p {
+    font-size: var(--font-size-header);
+}
+
+.resturant_feedback_section input,
+select,
+textarea {
+    width: 16rem;
+    height: 1.5rem;
+    border-radius: 18px;
+}
+
+.resturant_feedback_section span {
+    font-size: var(--font-size-body);
+}
+
+.resturant_feedback_section button {
+    background-color: var(--background-color-body);
+    color: var(--text-color-body);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-header);
+    width: 11rem;
+    height: 3rem;
+    border-radius: 21px;
+    margin-right: 7rem;
+}
 
 /* feedback form end */
+/* Privacy and policy  start */
+.resturant_privacy_article_main {
+    text-align: center;
+    margin-top: 2rem;
+    line-height: 1.7rem;
+}
+
+.resturant_privacy_section li {
+    list-style-type: none;
+}
+
+/* privacy and policy end */
+/* terms and conditions start */
+.resturant_terms_article_main {
+    text-align: center;
+    margin-top: 2rem;
+    line-height: 1.7rem;
+}
+
+.resturant_terms_section li {
+    list-style-type: none;
+}
+
+/* terms and conditions end */
 
 /* footer content css end */
 
 /* home page end */
+
+/* reserve page content css */
+.img2 {
+    width: 48rem;
+    height: 450px;
+    border-radius: 15px;
+    box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.9);
+}
+
+.reserve_main_div_1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 1rem;
+    gap: 10px;
+}
+
+.reserve_main_div_1 p {
+    background-color: var(--background-color-navbar);
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: justify;
+    padding: 36px 52px 0PX 48PX;
+    border-radius: 21px;
+    color: var(--text-color-navbar);
+}
+
+.reserve-form button {
+    background-color: var(--background-color-body);
+    color: var(--text-color-body);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: var(--font-weight-header);
+    margin-left: 7rem;
+}
+
+/* end of reserve page content */
+
+/* about page content  start */
+
+.resturant_about_section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.resturant_about_section div {
+    padding: 20px;
+}
+
+.resturant_about_section div h1 {
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-weight-header);
+    color: var(--text-color-body);
+}
+
+.resturant_about_section div p {
+    font-size: var(--major-para-font-size);
+    font-weight: var(--para-font-weight);
+    color: var(--text-color-body);
+    line-height: 25px;
+    padding: 10px;
+    text-align: justify;
+}
+
+.resturant_about_section div img {
+    width: 100%;
+    height: auto;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.9);
+    border-radius: 31px;
+}
+
+.resturant_about_section div button {
+    padding: 10px 20px;
+    font-size: var(--font-size-header);
+    font-weight: var(--font-weight-footer);
+    background-color: var(--background-color-navbar);
+    color: var(--text-color-navbar);
+    border: none;
+    border-radius: 21px;
+    cursor: pointer;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.6);
+}
+
+.resturant_about_section div button a {
+    text-decoration: none;
+    color: var(--button-text-hover-color);
+}
+
+.resturant_about_section .button_div {
+    text-align: right;
+}
+
+/* about page content  end */
 
 @media only screen and (max-width: 480px) {
     label {

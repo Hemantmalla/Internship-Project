@@ -33,49 +33,53 @@
                 <a href="{% url 'profile' %}">LOGIN</a>
             </div>
         </nav>
-    </header><br><br>
-    <main>
-        <section>
-            <div class="resturant_feedback_section">
-                <h2>Rate Your Dining Experience</h2>
-                <p>We’d love to hear how your visit was!</p>
-                <center>
-                <form action="" method="post">
-                    <span>FULL_NAME</span>:<input type="text" name="name" required placeholder="Your name">
-                    <span>EMAIL_ID</span>:<input type="email" name="email" required placeholder="example@gmail.com">
-                    <span>WHAT DID YOU ORDER?</span><input type="text" name="order"
-                        placeholder="Dish name / Menu items">
-                    <span>FOOD_RATING</span><select name="food_rating" required>
-                        <option value="">Select rating</option>
-                        <option>⭐⭐⭐⭐⭐ Excellent</option>
-                        <option>⭐⭐⭐⭐ Very Good</option>
-                        <option>⭐⭐⭐ Good</option>
-                        <option>⭐⭐ Average</option>
-                        <option>⭐ Poor</option>
-                    </select>
-                    <span>SERVICE_RATING</span><select name="service_rating" required>
-                        <option value="">Select rating</option>
-                        <option>⭐⭐⭐⭐⭐ Excellent</option>
-                        <option>⭐⭐⭐⭐ Very Good</option>
-                        <option>⭐⭐⭐ Good</option>
-                        <option>⭐⭐ Average</option>
-                        <option>⭐ Poor</option>
-                    </select>
-                    <span>AMBIENCE RATING</span><select name="ambience_rating" required>
-                        <option value="">Select rating</option>
-                        <option>⭐⭐⭐⭐⭐ Excellent</option>
-                        <option>⭐⭐⭐⭐ Very Good</option>
-                        <option>⭐⭐⭐ Good</option>
-                        <option>⭐⭐ Average</option>
-                        <option>⭐ Poor</option>
-                    </select>
-                    <span>COMMENTS</span><textarea name="message" placeholder="Share your thoughts…"></textarea>
-                    <button type="submit">Submit Feedback</button>
-                </form>
-                </center>
-            </div>
-        </section>
-    </main>
+    </header><br>
+    <center>
+        <main>
+            <section>
+                <div class="resturant_feedback_section">
+                    <h2>Rate Your Dining Experience</h2>
+                    <p>We’d love to hear how your visit was!</p>
+                    <center>
+                        <form action="" method="post">
+                            <span>FULL_NAME</span>:<input type="text" name="name" required placeholder="Your name"><br><br>
+                            <span>EMAIL_ID</span>:<input type="email" name="email" required
+                                placeholder="example@gmail.com"><br><br>
+                            <span>WHAT DID YOU ORDER?</span><input type="text" name="order"
+                                placeholder="Dish name / Menu items"><br><br>
+                            <span>FOOD_RATING</span><select name="food_rating" required>
+                                <option value="">Select rating</option>
+                                <option>⭐⭐⭐⭐⭐ Excellent</option>
+                                <option>⭐⭐⭐⭐ Very Good</option>
+                                <option>⭐⭐⭐ Good</option>
+                                <option>⭐⭐ Average</option>
+                                <option>⭐ Poor</option>
+                            </select><br><br>
+                            <span>SERVICE_RATING</span><select name="service_rating" required>
+                                <option value="">Select rating</option>
+                                <option>⭐⭐⭐⭐⭐ Excellent</option>
+                                <option>⭐⭐⭐⭐ Very Good</option>
+                                <option>⭐⭐⭐ Good</option>
+                                <option>⭐⭐ Average</option>
+                                <option>⭐ Poor</option>
+                            </select><br><br>
+                            <span>AMBIENCE RATING</span><select name="ambience_rating" required>
+                                <option value="">Select rating</option>
+                                <option>⭐⭐⭐⭐⭐ Excellent</option>
+                                <option>⭐⭐⭐⭐ Very Good</option>
+                                <option>⭐⭐⭐ Good</option>
+                                <option>⭐⭐ Average</option>
+                                <option>⭐ Poor</option>
+                            </select><br><br>
+                            <span>COMMENTS</span><textarea name="message"
+                                placeholder="Share your thoughts…"></textarea><br><br>
+                            <button type="submit">Submit Feedback</button><br>
+                        </form>
+                    </center>
+                </div>
+            </section>
+        </main>
+    </center><br>
     <footer>
         <div class="hom_footer_div">
             <div class="hom_footer_div_1">
@@ -96,6 +100,3 @@
 </body>
 
 </html>
-
-
-
