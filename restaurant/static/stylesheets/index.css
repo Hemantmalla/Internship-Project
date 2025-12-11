@@ -244,13 +244,10 @@ label {
 
 /* main bar content css end */
 /* footer content css start */
-footer {
-    top: -18px;
-}
-
 .hom_footer_div {
     background-color: var(--background-color-footer);
     height: 7rem;
+    width: 100%;
 }
 
 .hom_footer_div_1 {
@@ -487,7 +484,7 @@ textarea {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    margin-top: 5rem;
+    margin-top: 1rem;
 }
 
 .resturant_about_section div {
@@ -543,6 +540,8 @@ textarea {
     label {
         display: block;
         cursor: pointer;
+        text-align: center;
+        margin: 0
     }
 
     .navbar1 {
@@ -560,7 +559,7 @@ textarea {
     }
 
     .nav-bar1 {
-        padding-left: 1rem;
+        margin: 0 0 0 2rem;
     }
 
     .nav-bar-2 {
@@ -630,12 +629,12 @@ textarea {
     label {
         display: block;
         cursor: pointer;
+        text-align: end;
+        margin: 0;
     }
 
     .navbar1 {
         text-align: center;
-        width: 80%;
-        left: 94px;
         grid-template-columns: 2fr 1fr 1fr;
         height: 6rem;
         line-height: 30px;
@@ -651,7 +650,7 @@ textarea {
     }
 
     .nav-bar1 {
-        padding-left: 1rem;
+        margin: 0 0 0 -2rem;
         align-items: center;
     }
 
@@ -674,17 +673,10 @@ textarea {
 }
 
 @media only screen and (min-width: 900px) and (max-width: 1050px) {
-    label {
-        display: block;
-        cursor: pointer;
-        text-align: end;
-    }
 
     .navbar1 {
         text-align: center;
-        width: 80%;
-        left: 94px;
-        grid-template-columns: 2fr 1.5fr 0.7fr;
+        grid-template-columns: 1.5fr 3fr 0.7fr;
         height: 6rem;
         line-height: 30px;
         gap: 5px;
@@ -699,19 +691,18 @@ textarea {
     }
 
     .nav-bar1 {
-        padding-left: 1rem;
         align-items: center;
     }
 
     .nav-bar-2 {
-        display: none;
-        padding: 0px 0px 0px 5px;
+        display: flex;
+        gap: 5rem;
     }
 
     .nav-bar2 a {
-        display: block;
+        display: flex;
+        border: none;
         text-align: center;
-        border: 1px solid var(--text-color-navbar);
 
     }
 
@@ -729,9 +720,7 @@ textarea {
 @media only screen and (min-width: 1051px) and (max-width: 1151px) {
     .navbar1 {
         text-align: center;
-        width: 80%;
-        left: 104px;
-        grid-template-columns: 2fr 3fr 0.7fr;
+        grid-template-columns: 1.5fr 3fr 0.7fr;
         height: 6rem;
         gap: 5px;
     }
@@ -745,12 +734,12 @@ textarea {
     }
 
     .nav-bar1 {
-        padding-left: 1rem;
+        margin: 0 0 0 2rem;
         align-items: center;
     }
 
     .nav-bar-2 {
-        gap: 46px;
+        gap: 5rem;
     }
 
     .nav-bar2 a {
