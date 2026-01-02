@@ -1114,7 +1114,9 @@ option{
     }
 
     .nav-bar1 {
-        padding-left: 1rem;
+        display: flex;
+        justify-content: space-evenly;
+        padding-left: 0rem;
         align-items: center;
         gap: 0rem;
     }
@@ -1226,6 +1228,8 @@ option{
 
     .nav-bar2 {
         margin: 0px;
+        display: flex;
+        justify-content: space-around;
     }
 
     .nav-bar1 {
@@ -1238,7 +1242,7 @@ option{
         display: flex;
         justify-content: space-around;
         gap: 4rem;
-        margin-left: 2.5rem;
+        margin-left: 0px;
     }
 
     .nav-bar-2 a {
@@ -1274,6 +1278,8 @@ option{
 
     .nav-bar2 {
         margin: 0px;
+        display: flex;
+        justify-content: space-around;
     }
 
     .nav-bar1 {
@@ -1284,6 +1290,7 @@ option{
 
     .nav-bar-2 {
         gap: 5rem;
+        margin: 0;
     }
 
     .nav-bar2 a {
@@ -1306,5 +1313,21 @@ option{
         justify-items: anchor-center;
         margin: auto;
         left: 0;
+    }
+}
+@media only screen and (min-width: 1152px) and (max-width: 1280px) {
+    .nav-bar1 {
+        margin: 0;
+        align-items: center;
+        gap: 2rem;
+    }
+    .nav-bar2{
+        margin: 0;
+        display: flex;
+        justify-content: space-around;
+    }
+    .nav-bar-2{
+        gap: 7rem;
+        margin-left: 0rem;
     }
 }
