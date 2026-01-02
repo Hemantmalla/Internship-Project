@@ -23,17 +23,73 @@
                 <input type="checkbox" id="toggle">
                 <div class="nav-bar-2">
                     <a href="{% url 'menu' %}">MENU</a>
+                    {% if user.is_authenticated and user.role == 'waiter' %}
                     <a href="{% url 'order' %}">ORDERS</a>
+                    {% else %}
+                    <a href="#" class="disabled-link">ORDERS</a>
+                    {% endif %}
                     <a href="{% url 'reserve' %}">RESERVE</a>
                     <a href="{% url 'about' %}">ABOUT-US</a>
 
                 </div>
             </div>
             <div class="nav-bar3">
-                <a href="{% url 'profile' %}">LOGIN</a>
+                {% if user.is_authenticated and user.role == 'waiter' %}
+                <a href="{% url 'profile' %}">PROFILE</a>
+                {% else %}
+                <a href="{% url 'role' %}">LOGOUT</a>
+                {% endif %}
             </div>
         </nav>
     </header><br><br>
+    <main>
+        <div class="order_main_section">
+            <div class="order_main_section_left">
+                <h2>Your Orders</h2>
+                <div id="orderList">
+                    {% for item in order_items %}
+                    <div class="order_row" data-image="{{ item.image}}" data-name="{{ item.name }}"
+                        data-price="{{ item.price }}">
+                        <img src="{{ item.image}}" alt="{{ item.name }}" class="order_item_img">
+                        <p>{{ item.name }}</p>
+                        <p>₹{{ item.price }}</p>
+                    </div>
+                    {% empty %}
+                    <p>No orders</p>
+                    {% endfor %}
+                </div>
+
+                <button onclick="confirmOrder()" style="margin-top:20px;">
+                    Confirm Order
+                </button>
+            </div>
+            <div class="order_main_section_right">
+                <h2>Bill</h2>
+                <label>Customer Name:</label>
+                <input type="text" id="customer"><br>
+                <label>Phone Number :</label>
+                <input type="text" id="phone"><br>
+                <label>Table Number :</label>
+                <input type="text" id="table"><br>
+                <div id="billItems"></div>
+                <h3 id="billTotal"></h3>
+                <form method="POST" action="{% url 'generate_bill' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="customer" id="f_customer">
+                    <input type="hidden" name="phone" id="f_phone">
+                    <input type="hidden" name="table" id="f_table">
+                    <input type="hidden" name="date" id="f_date">
+                    <input type="hidden" name="time" id="f_time">
+                    <input type="hidden" name="items" id="f_items">
+                    <input type="hidden" name="total" id="f_total">
+                    <button type="submit" id="generateBtn">
+                        Generate Bill
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </main>
     <footer>
         <div class="hom_footer_div">
             <div class="hom_footer_div_1">

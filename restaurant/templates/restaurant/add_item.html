@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Umami</title>
+    <link rel="stylesheet" href="{% static 'stylesheets/index.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images/indian3.jpeg' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: bottom;
+        }
+    </style>
+
+<body>
+
+    <main class="resturant_login_credentials_main">
+        <div class="resturant_login_credentials">
+            <div>
+                <h2>Add Menu Item</h2>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Save</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

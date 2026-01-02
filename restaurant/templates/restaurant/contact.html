@@ -23,14 +23,22 @@
                 <input type="checkbox" id="toggle">
                 <div class="nav-bar-2">
                     <a href="{% url 'menu' %}">MENU</a>
+                    {% if user.is_authenticated and user.role == 'waiter' %}
                     <a href="{% url 'order' %}">ORDERS</a>
+                    {% else %}
+                    <a href="#" class="disabled-link">ORDERS</a>
+                    {% endif %}
                     <a href="{% url 'reserve' %}">RESERVE</a>
                     <a href="{% url 'about' %}">ABOUT-US</a>
 
                 </div>
             </div>
             <div class="nav-bar3">
-                <a href="{% url 'profile' %}">LOGIN</a>
+                {% if user.is_authenticated and user.role == 'waiter' %}
+                <a href="{% url 'profile' %}">PROFILE</a>
+                {% else %}
+                <a href="{% url 'role' %}">LOGOUT</a>
+                {% endif %}
             </div>
         </nav>
     </header>

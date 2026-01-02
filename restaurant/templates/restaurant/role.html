@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Umami</title>
+    <link rel="stylesheet" href="{% static 'stylesheets/index.css' %}">
+    <style>
+        body{
+            background-image: url("{% static 'images/about_view.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        .fade-in {
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <div class="fade-in" id="role-box">
+        <h1>Select Role</h1>
+
+        <a href="{% url 'index' %}?role=user">
+            <button style="left: -5rem;">User</button>
+        </a>
+
+        <a href="{% url 'login' %}">
+            <button style="right: -5rem;">Waiter</button>
+        </a>
+    </div>
+</body>
+
+</html>

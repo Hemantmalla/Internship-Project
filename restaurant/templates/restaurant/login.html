@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'stylesheets/index.css' %}">
+    <title>Urban Umami</title>
+    <style>
+        body {
+            background-image: url("{% static 'images/loginform.png' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: bottom;
+        }
+    </style>
+</head>
+
+<body class="login_body">
+    <div class="login_form_div">
+        <h2>Login Form</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {% if error %}
+            <p style="color:red;">{{ error }}</p>
+            {% endif %}
+
+            <span>UserEmail:</span><input type="email" name="waiter_email" placeholder="Enter your email"
+                required><br><br>
+            <span>Password:</span><input type="password" name="waiter_password" placeholder="Enter your password"
+                required><br><br>
+            <p> have an account <a href="{% url 'waiter_form' %}">signup ?</a></p>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'stylesheets/index.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images/waiterform.png' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+
+        label {
+            display: contents;
+            margin: 0;
+        }
+
+        h2,p {
+            text-align: end;
+            margin: 0 5rem 0 0;
+        }
+        h2, .reg {
+            margin-right: 8rem;
+        }
+        p{
+            height: 3rem;
+        }
+    </style>
+    <title>Urban Umami</title>
+</head>
+
+<body class="login_body">
+    <div class="login_form_div" style="padding: 2rem 0 2rem 0;">
+        <h2>Waiter Registration Form</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }} <br>
+            <!-- {% for field in form %}
+            {{ field.label_tag }} {{ field }} <br>
+            {% endfor %} -->
+            <p class="reg"> already have an account <a href="{% url 'login' %}">login ?</a></p>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+
+</html>

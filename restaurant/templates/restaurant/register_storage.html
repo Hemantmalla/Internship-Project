@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Umami</title>
+</head>
+<body>
+    <table border="1" cellpadding="10" >
+        <tr>
+            <th>Waiter ID</th>
+            <th>Waiter Name</th>
+            <th>Waiter Email</th>
+            <th>Waiter Phone</th>
+            <th>Waiter Password</th>
+        </tr>
+        {% for waiter in waiters %}
+        <tr>
+            <td>{{ waiter.waiter_id }}</td>
+            <td>{{ waiter.waiter_name }}</td>
+            <td>{{ waiter.waiter_email }}</td>
+            <td>{{ waiter.waiter_phone }}</td>
+            <td>{{ waiter.waiter_password }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

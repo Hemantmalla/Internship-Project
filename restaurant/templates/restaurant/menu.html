@@ -1,4 +1,5 @@
 {% load static %}
+{% load menu_extras %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,17 +24,88 @@
                 <input type="checkbox" id="toggle">
                 <div class="nav-bar-2">
                     <a href="{% url 'menu' %}">MENU</a>
+                    {% if user.is_authenticated and user.role == 'waiter' %}
                     <a href="{% url 'order' %}">ORDERS</a>
+                    {% else %}
+                    <a href="#" class="disabled-link">ORDERS</a>
+                    {% endif %}
                     <a href="{% url 'reserve' %}">RESERVE</a>
                     <a href="{% url 'about' %}">ABOUT-US</a>
 
                 </div>
             </div>
             <div class="nav-bar3">
-                <a href="{% url 'profile' %}">LOGIN</a>
+                {% if user.is_authenticated and user.role == 'waiter' %}
+                <a href="{% url 'profile' %}">PROFILE</a>
+                {% else %}
+                <a href="{% url 'role' %}">LOGOUT</a>
+                {% endif %}
             </div>
         </nav>
-    </header>
+    </header><br>
+    <main>
+        <section>
+            <div class="cart_icon">
+                <a href="{% url 'cart' %}"><i class="fa-solid fa-cart-arrow-down"></i></a>
+            </div>
+            <div class="resturant_menu_food_section">
+                <div class="resturant_menu_food_section_left">
+                    <div class="resturant_menu_food_section_left_heading">
+                        <h1>CATEGORIES</h1>
+                    </div>
+                    <div class="resturant_menu_food_section_left_options">
+                        <select id="categorySelect">
+                            <option selected disabled>Chinese Dishes</option>
+                            <option value="appetizers">Appetizers</option>
+                            <option value="soups">Soups</option>
+                            <option value="noodles">Noodles</option>
+                            <option value="maincourse">Main Course</option>
+                        </select>
+                        <select id="indianSelect">
+                            <option selected disabled>Indian Dishes</option>
+                            <option value="starters">Starters</option>
+                            <option value="biryanis">Biryanis</option>
+                            <option value="curries">Curries</option>
+                            <option value="tandoori">Tandoori Items</option>
+                        </select>
+                        <select id="continental_dropdown">
+                            <option value="continental" selected aria-disabled="true">Continental Dishes</option>
+                            <option value="pasta">Pasta</option>
+                            <option value="pizza">Pizza</option>
+                            <option value="grilled">Grilled Items</option>
+                            <option value="salads">Salads</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="resturant_menu_food_section_right">
+                    {% for sc in subcategories %}
+                    <div class="menu_items_container" id="{{ sc.slug }}" style="display:none;">
+                        <div class="menu_items_grid">
+                            {% for item in items_by_slug|get_item:sc.slug %}
+                            <div class="menu_card">
+                                {% if item.image %}
+                                <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                                {% else %}
+                                <img src="{% static 'images/placeholder.png' %}" alt="no image">
+                                {% endif %}
+                                <h3>{{ item.name }}</h3>
+                                <p>{{ item.description }}</p>
+                                <p>₹ {{ item.price }}</p>
+                                <button onclick="addToCart({{ item.id }})" class="add-btn">
+                                    Add
+                                </button>
+
+                            </div>
+                            {% empty %}
+                            <p>No items yet.</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </main><br><br>
     <footer>
         <div class="hom_footer_div">
             <div class="hom_footer_div_1">

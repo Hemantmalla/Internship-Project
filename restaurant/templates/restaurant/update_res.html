@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Umami</title>
+    <link rel="stylesheet" href="{% static 'stylesheets/index.css' %}">
+    <style>
+        body {
+            background-image: url("{% static 'images/loginform.png' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: bottom;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div class="up_res_pa_di_1">
+            <h2> Update Reservation </h2>
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit">Update Reservation</button>
+            </form>
+        </div>
+    </center>
+</body>
+
+</html>

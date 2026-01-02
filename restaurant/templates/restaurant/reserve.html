@@ -8,6 +8,14 @@
     <title>Urban Umami</title>
     <link rel="stylesheet" href="{% static 'stylesheets/index.css' %}">
     <script src="https://kit.fontawesome.com/22743b5cbb.js" crossorigin="anonymous"></script>
+    <style>
+        .reservation-card {
+            background-image: url("{% static 'images/story.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,33 +31,77 @@
                 <input type="checkbox" id="toggle">
                 <div class="nav-bar-2">
                     <a href="{% url 'menu' %}">MENU</a>
+                    {% if user.is_authenticated and user.role == 'waiter' %}
                     <a href="{% url 'order' %}">ORDERS</a>
+                    {% else %}
+                    <a href="#" class="disabled-link">ORDERS</a>
+                    {% endif %}
                     <a href="{% url 'reserve' %}">RESERVE</a>
                     <a href="{% url 'about' %}">ABOUT-US</a>
 
                 </div>
             </div>
             <div class="nav-bar3">
-                <a href="{% url 'profile' %}">LOGIN</a>
+                {% if user.is_authenticated and user.role == 'waiter' %}
+                <a href="{% url 'profile' %}">PROFILE</a>
+                {% else %}
+                <a href="{% url 'role' %}">LOGOUT</a>
+                {% endif %}
             </div>
         </nav>
     </header><br><br>
     <main>
-        <div class="reserve_main_div_1">
-            <img src="{% static 'images/reserve.jpeg ' %}" alt="RESERVATION" class="img2">
-            <p>
-                Welcome to Urban Umami's reservation page! We are delighted that you are considering dining with us.
-                To ensure a seamless experience, please provide us with the following details to reserve your table:
-                <br><br>
-                Full Name: Aesthete<br>
-                Contact Number: 1234567890<br>
-                Email Address: aesthete@gmail.com<br>
-                Date and Time of Reservation: 5/12/2025<br>
-                Number of Guests: 2<br>
-                Special Requests (if any): Privacy<br><br>
-            </p>
-        </div><br><br>
-    </main>
+        <div style="margin: 0 18px;">
+            <h2 style="text-align: center;">Existing Reservations</h2>
+
+            <div class="reservations-wrapper">
+                {% for r in reservations %}
+                <div class="reservation-card">
+                    <div class="reservation-details">
+                        <p><strong>Reservation ID:</strong> {{ r.res_id }}</p>
+                        <p><strong>Name:</strong> {{ r.cus_name }}</p>
+                        <p><strong>Email:</strong> {{ r.cus_email }}</p>
+                        <p><strong>Date:</strong> {{ r.res_date }}</p>
+                        <p><strong>Time:</strong> {{ r.res_time }}</p>
+                        <p><strong>People:</strong> {{ r.num_people }}</p>
+                    </div>
+                    <div class="reservation-actions">
+                        {% if request.session.is_waiter %}
+                        <a href="{% url 'update_res' r.res_id %}" class="btn-edit">Update</a>
+                        <a href="{% url 'delete_res' r.res_id %}" class="btn-delete">Delete</a>
+                        {% else %}
+                        <a class="btn-edit disabled-link">Update</a>
+                        <a class="btn-delete disabled-link">Delete</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% empty %}
+                <p style="text-align:center;">No reservations yet</p>
+                {% endfor %}
+            </div>
+        </div>
+        {% if request.session.is_waiter %}
+        <br><br><br><br><br><br>
+        {% else %}
+        <br><br>
+        {% endif %}
+
+        <center>
+            <div class="reserve_main_div_1">
+                <h2>Make Reservations</h2>
+                <form class="reserve-form" method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+
+                    {% for message in messages %}
+                    <p style="color:green;">{{ message }}</p>
+                    {% endfor %}
+
+                    <button type="submit">Reserve Table</button>
+                </form>
+            </div>
+        </center>
+    </main><br>
     <footer>
         <div class="hom_footer_div">
             <div class="hom_footer_div_1">
